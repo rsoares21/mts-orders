@@ -25,5 +25,3 @@ curl -X POST http://localhost:8081/pedidos -H "Content-Type: application/json" -
 curl http://localhost:8081/pedidos
 
 
-
---------------------------------------------------------------------------------------------------
