@@ -27,13 +27,3 @@ curl http://localhost:8081/pedidos
 
 
 --------------------------------------------------------------------------------------------------
-
-com uma volumetria alta, como posso garantir a disponobilidade do servico ?
-
-Filas de Mensagens:
-
-Processamento Assíncrono: Utilize filas de mensagens (como RabbitMQ ou Kafka) para processar tarefas de forma assíncrona e reduzir a latência das operações síncronas.
-
-Cache:
-
-Cache de Respostas: Utilize um cache (como Redis ou Memcached) para armazenar respostas de consultas frequentes e reduzir a carga no banco de dados.
