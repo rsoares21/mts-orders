@@ -1,0 +1,34 @@
+version: '3.8'
+
+services:
+  mongo:
+    image: mongo:latest
+    container_name: mongo_db
+    restart: always
+    ports:
+      - "27017:27017"
+    environment:
+      MONGO_INITDB_ROOT_USERNAME: root
+      MONGO_INITDB_ROOT_PASSWORD: example
+      SPRING_DATA_MONGODB_URI: mongodb://root:example@localhost:27017/mouts?authSource=admin
+    volumes:
+      - mongo_data:/data/db
+
+  app:
+    build: .
+    container_name: spring_app
+    restart: always
+    depends_on:
+      - mongo
+    ports:
+      - "8080:8080"
+    environment:
+      SPRING_DATA_MONGODB_URI: mongodb://root:example@mongo:27017/?authSource=admin
+    networks:
+      - app_network
+
+volumes:
+  mongo_data:
+
+networks:
+  app_network:
