@@ -5,6 +5,7 @@ import org.springframework.data.mongodb.core.mapping.Document;
 import lombok.*;
 
 import java.math.BigDecimal;
+import java.util.ArrayList;
 import java.util.Date;
 import java.util.List;
 
@@ -21,8 +22,8 @@ public class Order {
     private BigDecimal valorTotal;
     private Date dataCriacao;
     private String status;
-    private List<Product> produtosList;
-    private List<OrderHistory> history;
+    private List<Product> produtosList = new ArrayList<>();
+    private List<OrderHistory> history = new ArrayList<>();
 
     public void calcularValorTotal() {
         this.valorTotal = produtosList.stream()
