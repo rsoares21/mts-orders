@@ -14,16 +14,25 @@ services:
     volumes:
       - mongo_data:/data/db
 
+  redis:
+    image: redis:latest
+    container_name: redis
+    restart: always
+    ports:
+      - "6379:6379"
+
   app:
     build: .
     container_name: spring_app
     restart: always
     depends_on:
       - mongo
+      - redis
     ports:
       - "8080:8080"
     environment:
-      SPRING_DATA_MONGODB_URI: mongodb://root:example@mongo:27017/?authSource=admin
+      SPRING_DATA_MONGODB_URI: mongodb://root:example@mongo:27017/mouts?authSource=admin
+      SPRING_REDIS_HOST: redis
     networks:
       - app_network
 
