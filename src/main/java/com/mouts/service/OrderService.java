@@ -10,6 +10,7 @@ import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.cache.annotation.CacheEvict;
 import org.springframework.cache.annotation.Cacheable;
 import org.springframework.stereotype.Service;
+import org.springframework.transaction.annotation.Transactional;
 
 import java.util.Date;
 import java.util.List;
@@ -49,6 +50,7 @@ public class OrderService {
         return orderRepository.findByStatus(status);
     }
 
+    @Transactional
     @CacheEvict(value = "ordersCache", allEntries = true)
     public List<Order> atualizarStatusOrders(List<Order> orders, String status) {
         for (Order order : orders) {
