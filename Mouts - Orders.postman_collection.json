@@ -1,0 +1,101 @@
+{
+	"info": {
+		"_postman_id": "8465fdb1-ba2a-4621-a43d-93d684edcf93",
+		"name": "Mouts - Orders",
+		"schema": "https://schema.getpostman.com/json/collection/v2.1.0/collection.json",
+		"_exporter_id": "14590580"
+	},
+	"item": [
+		{
+			"name": "Order RECEBER",
+			"request": {
+				"method": "POST",
+				"header": [],
+				"body": {
+					"mode": "raw",
+					"raw": "{\r\n    \"codigoOrder\": \"123ABCDE\",\r\n    \"produtosList\": [\r\n        {\r\n            \"idProduto\": 1,\r\n            \"valor\": 10.10\r\n        },\r\n        {\r\n            \"idProduto\": 2,\r\n            \"valor\": 20.20\r\n        },\r\n        {\r\n            \"idProduto\": 3,\r\n            \"valor\": 30.30\r\n        }        \r\n    ]\r\n}",
+					"options": {
+						"raw": {
+							"language": "json"
+						}
+					}
+				},
+				"url": {
+					"raw": "localhost:8080/orders",
+					"host": [
+						"localhost"
+					],
+					"port": "8080",
+					"path": [
+						"orders"
+					]
+				}
+			},
+			"response": []
+		},
+		{
+			"name": "Order ENTREGAR",
+			"request": {
+				"method": "PUT",
+				"header": [],
+				"body": {
+					"mode": "raw",
+					"raw": "[\r\n    {\r\n        \"codigoOrder\": \"WYIJBRLO\"\r\n    }\r\n]",
+					"options": {
+						"raw": {
+							"language": "json"
+						}
+					}
+				},
+				"url": {
+					"raw": "localhost:8080/orders/entregar",
+					"host": [
+						"localhost"
+					],
+					"port": "8080",
+					"path": [
+						"orders",
+						"entregar"
+					]
+				}
+			},
+			"response": []
+		},
+		{
+			"name": "Order ALL",
+			"request": {
+				"method": "GET",
+				"header": [],
+				"url": {
+					"raw": "localhost:8080/orders",
+					"host": [
+						"localhost"
+					],
+					"port": "8080",
+					"path": [
+						"orders"
+					]
+				}
+			},
+			"response": []
+		},
+		{
+			"name": "Order ALL RECEBIDAS",
+			"request": {
+				"method": "GET",
+				"header": [],
+				"url": {
+					"raw": "localhost:8080/orders",
+					"host": [
+						"localhost"
+					],
+					"port": "8080",
+					"path": [
+						"orders"
+					]
+				}
+			},
+			"response": []
+		}
+	]
+}

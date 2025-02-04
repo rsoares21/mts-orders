@@ -50,7 +50,7 @@ public class OrderService {
     }
 
     @CacheEvict(value = "ordersCache", allEntries = true)
-    public synchronized List<Order> atualizarStatusOrders(List<Order> orders, String status) {
+    public List<Order> atualizarStatusOrders(List<Order> orders, String status) {
         for (Order order : orders) {
             Optional<Order> orderExistente = orderRepository.findByCodigoOrder(order.getCodigoOrder());
             if (orderExistente.isPresent()) {
